@@ -20,7 +20,7 @@ const Header = () => {
           />
         </div>
         {/* Search bar */}
-        <div className="hidden sm:flex items-center h-10 rounded-md flex-grow  bg-yellow-300 hover: bg-yellow-500">
+        <div className="hidden sm:flex items-center h-10 rounded-md flex-grow  bg-yellow-300 hover:bg-yellow-500">
           <input
             className="p-2 w-6 h-full focus:outline-none px-4 flex-grow rounded-l-md flex-shrink"
             type="text"
@@ -38,8 +38,9 @@ const Header = () => {
             <p className="font-extrabold md:text-sm">&Orders</p>
           </div>
           <div className="link relative flex items-center">
-            0
-            <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold"></span>
+            <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full font-bold text-black">
+              0
+            </span>
             <ShoppingCartIcon className="h-10" />
             <p className="hidden md:inline mt-2 font-extrabold md:text-sm">
               Basket
@@ -48,7 +49,20 @@ const Header = () => {
         </div>
       </div>
       {/* loer nav */}
-      <div className="lowernav"></div>
+      <div className=" flex items-center space-x-3 p-2 bg-amazon_blue-light text-white text-sm">
+        <p className="link flex items-center">
+          <MenuIcon className="h-6 mr-1 " /> All
+        </p>
+        <p className="link">Prime Video</p>
+        <p className="link">Amazon Business</p>
+        <p className="link">Today's Deals</p>
+        <p className="link hidden lg:inline-flex">Electronic's</p>
+        <p className="link hidden lg:inline-flex">Fashion</p>
+        <p className="link hidden lg:inline-flex">Mobiles</p>
+        <p className="link hidden lg:inline-flex">Fashion & Prime</p>
+        <p className="link hidden lg:inline-flex">Grocerys</p>
+        <p className="link hidden lg:inline-flex">Gifts</p>
+      </div>
     </header>
   )
 }
