@@ -9,11 +9,14 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const [data, setdata] = useState([])
 
-  useEffect(() => {
+  function fetchingproducts(params) {
     fetch('https://fakestoreapi.com/products')
       .then((one) => one.json())
       .then((resp) => setdata(resp, 'fomradsf'))
-  }, [])
+  }
+  useEffect(() => {
+    fetchingproducts()
+  }, [fetchingproducts])
   console.log('inidan')
   console.log(data?.slice(0, 10))
   return (
@@ -25,9 +28,9 @@ export default function Home() {
       <main className="max-w-screen-2xl mx-auto">
         {/* banner  */}
         <Banner />
-        <div>
-          {typeof data.id == 'undefined' ? <Productfeed products={data} /> : ''}
-        </div>
+
+        {typeof data.id == 'undefined' ? <Productfeed products={data} /> : ''}
+
         {/* Productsfeed */}
 
         {/* <p>{products}</p> */}

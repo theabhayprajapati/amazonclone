@@ -8,10 +8,14 @@ import {
 } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { selectItems } from '../../slice/basketSlice'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const router = useRouter()
   const { data: session } = useSession()
+  const items = useSelector(selectItems)
+
   return (
     <header>
       {/* upper nav */}
@@ -56,13 +60,13 @@ const Header = () => {
           </div>
           <div className="link relative flex items-center">
             <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full font-bold text-black">
-              0
+              {items.length}
             </span>
-            <ShoppingCartIcon className="h-10" />
-            <p
-              className="hidden md:inline mt-2 font-extrabold md:text-sm"
-              // onClick={() => router.push('/checkout')}
-            >
+            <ShoppingCartIcon
+              className="h-10"
+              onClick={() => router.push('/checkout')}
+            />
+            <p className="hidden md:inline mt-2 font-extrabold md:text-sm">
               <Link href="/checkout">
                 <a>Basket </a>
               </Link>
